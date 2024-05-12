@@ -1,16 +1,10 @@
-# flutter_diu
+# Flutter For Me videos
 
-A new Flutter project.
+[Youtube: @FlutterforMe](https://www.youtube.com/@FlutterforMe) -
+[Telegram](https://t.me/flutter_for_me)
 
-## Getting Started
+## Auth UI
 
-This project is a starting point for a Flutter application.
+check code [flutter_for_me_auth_ui_00](/flutter_for_me_auth_ui_00/)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![auth ui](/res/auth_ui.png)
