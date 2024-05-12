@@ -14,16 +14,18 @@ class SingInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: const Color(0xFF1B192C),
-      bottomNavigationBar: BottomAction(),
+      backgroundColor: Color(0xFF1B192C),
+      appBar: _AppBar(),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              _AppBar(),
-              Center(child: SingInCard()),
-              SizedBox(height: 32),
-            ],
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Center(child: SingInCard()),
+                SizedBox(height: 64),
+                BottomAction(),
+              ],
+            ),
           ),
         ),
       ),
@@ -169,7 +171,7 @@ class SingInCard extends StatelessWidget {
   }
 }
 
-class _AppBar extends StatelessWidget {
+class _AppBar extends StatelessWidget implements PreferredSizeWidget {
   const _AppBar({super.key});
 
   @override
@@ -201,4 +203,7 @@ class _AppBar extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Size get preferredSize => Size.fromHeight(220);
 }
