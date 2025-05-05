@@ -25,11 +25,12 @@ Keep things simple, but don't use others' easy code without a certain understand
 
 ### Learn by doing
 
-Yap, learn by doing stuff. We always say fake it till you make it.
+Yap, learn by doing stuff. We always say, fake it till you make it.
 
 But just watching and doing like monkey people might not get you anywhere. Make sure you understand at a certain level.
 
-Another type of developer (-/\_) can be seen as a vibe coder.
+Another type of developer (-/\_) can be seen as a vibe coder, who don't even bother understanding what it's doing.
+The handshake between marketing and non-programmer.
 
 #### Here are a few things
 
@@ -42,7 +43,7 @@ So know what you're doing, at least at a certain level. Many devs add a bunch of
 
 I am not saying it is bad to use a package or library. You should use the ones you understand and know that:
 
-- it has been made by people you trust
+- it has been made by the people/team you trust
 - it is future reliable  
   There are a bunch of packages that can be found to do a thing. Just find the one that has fewer Git issues and is well-maintained.
 - ***
