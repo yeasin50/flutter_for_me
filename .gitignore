@@ -9,6 +9,7 @@
 .history
 .svn/
 
+/example
 /flutter_art
 /flutter_101
 
