@@ -2,6 +2,8 @@
 
 [Flutter](../../tags/flutter.md)
 
+> If you prefer [video tutorial](https://youtu.be/CNc5afG86Uw)
+
 Let's say we have two widgets,
 
 - one is a `Text` which must be center aligned.
@@ -22,7 +24,7 @@ Row(
 ),
 ```
 
-But if we run this we will find out the text gets shifted right when CircleProgressIndicator is visible.
+But if we run this we will find out the text gets shifted right when `CircleProgressIndicator` is visible.
 
 Now you might be thinking of using stack widget
 
@@ -39,16 +41,16 @@ Stack(
 ),
 ```
 
-But if we resize our layout, we can see this is not quite the thing we want.
+But if we re-size our layout, we can see this is not quite the thing we want.
 
-while This is just a Text widget with a loader, you might be thinking of `RichText` with a `WidgetSpan` ?
-well this will lead you into the same alignment shift issue.
+While This is just a Text widget with a loader, you might be thinking of `RichText` with a `WidgetSpan` ?
+Well this will lead you into the same alignment shift issue.
 
 Often it won't be about just the Text "submit" all the time.
 
 ## Got tricks
 
-At this current situation , you know the `Visibility`/`Opacity` widget. so you add another widget to the right with a 0 opacity or visibility false with maintaining position which will be always invisible.
+At this current situation , you know the `Visibility`/`Opacity` widget. So you add another widget to the right with a 0 opacity or visibility false with maintaining position which will be always invisible.
 
 ```dart
 Row(
@@ -100,30 +102,36 @@ Then we can use `targetAlignment`, `followerAlignment`, `offset` to position the
 Just one more important thing, `CompositedTransformTarget` must be layout first.
 
 ```dart
-Stack( //just to have multiple widgets
+//just to have multiple widgets, you can use Row/Column based on available space you've.
+Stack(
   children: [
     Center(
-        child: CompositedTransformTarget(
-        link: link,
-        child: Text("Submit"), //
-        ),
+      child: CompositedTransformTarget(
+        link: layerLink,
+        child: Text("Submit"),
+      ),
     ),
-  CompositedTransformFollower(
-      link: link,
-      targetAnchor: Alignment.centerLeft,
-      followerAnchor: Alignment.centerRight,
-      offset: Offset(-8, 0),
-      child: CircularProgressIndicator(
-      constraints: BoxConstraints.tight(Size.square(16)), //
-      ), //
-  ),
+    if (loading)
+      CompositedTransformFollower(
+        link: layerLink,
+        targetAnchor: Alignment.centerLeft,
+        followerAnchor: Alignment.centerRight,
+        offset: Offset(-8, 0),
+        child: CircularProgressIndicator(),
+      ),
   ],
-)
+),
 ```
 
-You can create many cool animations like my [portfolio](portfolio), Telegram scroll effects and many more.
+You can create many cool animations like my [portfolio][portfolio], Telegram scroll effects and many more.
 
-If you are seeking more fine control, you might like `Flow`, `CustomSingleChildLayout`, `CustomMultiChildLayout` widgets, which are for little advance use-case.
-I have one in the public repo, you can checkout from here.
+If you are seeking more fine control, you might like [Flow][flow], [CustomSingleChildLayout][CSCL], [CustomMultiChildLayout][CMCL] widgets, which are for little advance use-case.
+
+Find more about [CompositedTransformFollower][CTT] and [CompositedTransformTarget][CTF].
 
 [portfolio]: https://github.com/yeasin50/portfolio/blob/master/packages/stackoverflow_stats/lib/src/presentation/home/home_page_delegate.dart
+[flow]: https://api.flutter.dev/flutter/widgets/Flow-class.html
+[CSCL]: https://api.flutter.dev/flutter/widgets/CustomSingleChildLayout-class.html
+[CMCL]: https://api.flutter.dev/flutter/widgets/CustomMultiChildLayout-class.html
+[CTT]: https://api.flutter.dev/flutter/widgets/CompositedTransformTarget-class.html
+[CTF]: https://api.flutter.dev/flutter/widgets/CompositedTransformFollower-class.html
